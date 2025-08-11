@@ -69,7 +69,7 @@ export default function Home() {
       </header>
 
       {/* Main Content */}
-      <main className="pt-12">
+      <main className="pt-8">
         {/* Hero Section */}
         <section 
           ref={heroRef}
@@ -108,7 +108,7 @@ export default function Home() {
         {/* Our Mission */}
         <section 
           ref={missionRef}
-          className={`py-16 md:py-24 px-6 md:px-12 transition-all duration-1000 ${
+          className={`py-8 md:py-16 px-6 md:px-12 transition-all duration-1000 ${
             missionVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
           }`}
         >
@@ -130,7 +130,7 @@ export default function Home() {
         {/* What We Build */}
         <section 
           ref={buildRef}
-          className={`py-16 md:py-24 px-6 md:px-12 bg-gray-50 transition-all duration-1000 ${
+          className={`py-8 md:py-16 px-6 md:px-12 bg-gray-50 transition-all duration-1000 ${
             buildVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
           }`}
         >
@@ -160,7 +160,7 @@ export default function Home() {
         {/* Our Approach */}
         <section 
           ref={approachRef}
-          className={`py-16 md:py-24 px-6 md:px-12 transition-all duration-1000 ${
+          className={`py-8 md:py-16 px-6 md:px-12 transition-all duration-1000 ${
             approachVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
           }`}
         >
@@ -182,7 +182,7 @@ export default function Home() {
         {/* Current Projects */}
         <section 
           ref={projectsRef}
-          className={`py-16 md:py-24 px-6 md:px-12 bg-gray-50 transition-all duration-1000 ${
+          className={`py-8 md:py-16 px-6 md:px-12 bg-gray-50 transition-all duration-1000 ${
             projectsVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
           }`}
         >
@@ -194,7 +194,7 @@ export default function Home() {
                   <h3 className="text-lg md:text-xl font-medium text-gray-900 group-hover:text-black transition-colors">Cheese</h3>
                   <p className="text-gray-500 group-hover:text-gray-600 transition-colors text-sm sm:text-base">Capture, organize, and share your everyday adventures with beautiful photo collections that tell your story.</p>
                 </div>
-                <svg className="w-5 h-5 text-gray-400 group-hover:text-black group-hover:translate-x-1 transition-all duration-300 self-end sm:self-center" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <svg className="hidden sm:block w-5 h-5 text-gray-400 group-hover:text-black group-hover:translate-x-1 transition-all duration-300 self-end sm:self-center" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                 </svg>
               </a>
@@ -203,7 +203,7 @@ export default function Home() {
                   <h3 className="text-lg md:text-xl font-medium text-gray-900 group-hover:text-black transition-colors">Council</h3>
                   <p className="text-gray-500 group-hover:text-gray-600 transition-colors text-sm sm:text-base">An intelligent case management and legal assistant platform powered by multiple AI agents working together like a legal team.</p>
                 </div>
-                <svg className="w-5 h-5 text-gray-400 group-hover:text-black group-hover:translate-x-1 transition-all duration-300 self-end sm:self-center" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <svg className="hidden sm:block w-5 h-5 text-gray-400 group-hover:text-black group-hover:translate-x-1 transition-all duration-300 self-end sm:self-center" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                 </svg>
               </a>
@@ -212,7 +212,7 @@ export default function Home() {
                   <h3 className="text-lg md:text-xl font-medium text-gray-900 group-hover:text-black transition-colors">HeartPins</h3>
                   <p className="text-gray-500 group-hover:text-gray-600 transition-colors text-sm sm:text-base">Track your love journey through kisses. Bring back the fun in being intentional and intimate with the ones you love.</p>
                 </div>
-                <svg className="w-5 h-5 text-gray-400 group-hover:text-black group-hover:translate-x-1 transition-all duration-300 self-end sm:self-center" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <svg className="hidden sm:block w-5 h-5 text-gray-400 group-hover:text-black group-hover:translate-x-1 transition-all duration-300 self-end sm:self-center" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                 </svg>
               </a>
@@ -223,7 +223,7 @@ export default function Home() {
         {/* Our Fellows */}
         <section 
           ref={fellowsRef}
-          className={`py-20 md:py-32 px-6 md:px-12 transition-all duration-1000 ${
+          className={`py-12 md:py-20 px-6 md:px-12 transition-all duration-1000 ${
             fellowsVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
           }`}
         >
@@ -279,7 +279,7 @@ export default function Home() {
         {/* Contact */}
         <section 
           ref={contactRef}
-          className={`py-20 md:py-32 px-6 md:px-12 bg-gray-50 transition-all duration-1000 ${
+          className={`py-12 md:py-20 px-6 md:px-12 bg-gray-50 transition-all duration-1000 ${
             contactVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
           }`}
         >
