@@ -1,8 +1,54 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap');
+/* local fonts */
+@font-face {
+  font-family: 'DomaineDispNar-Black';
+  src: url('/fonts/domaine-display-narrow/DomaineDispNar-Black.otf') format('opentype');
+  font-weight: 900;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'DomaineDispNar-Bold';
+  src: url('/fonts/domaine-display-narrow/DomaineDispNar-Bold.otf') format('opentype');
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'DomaineDispNar-Regular';
+  src: url('/fonts/domaine-display-narrow/DomaineDispNar-Regular.otf') format('opentype');
+  font-weight: 400;
+  font-style: normal;
+}
+
+
+@font-face {
+  font-family: 'DomaineDispNar-Medium';
+  src: url('/fonts/domaine-display-narrow/DomaineDispNar-Medium.otf') format('opentype');
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'DomaineDispNar-Semibold';
+  src: url('/fonts/domaine-display-narrow/DomaineDispNar-Semibold.otf') format('opentype');
+  font-weight: 600;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Nineties';
+  src: url('/fonts/perfectly-nineties-regular.otf') format('opentype');
+  font-weight: 400;
+  font-style: normal;
+}
+
+
 
 * {
   box-sizing: border-box;
@@ -36,4 +82,35 @@ a {
   html {
     color-scheme: dark;
   }
+}
+
+.font-domaine-regular {
+  font-family: 'DomaineDispNar-Regular', sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.font-domaine-medium {
+  font-family: 'DomaineDispNar-Medium', sans-serif;
+  font-weight: 500;
+}
+
+.font-domaine-bold {
+  font-family: 'DomaineDispNar-Bold', sans-serif;
+  font-weight: 700;
+}
+
+.font-domaine-black {
+  font-family: 'DomaineDispNar-Black', sans-serif;
+  font-weight: 900;
+}
+
+.font-domaine-semibold {
+  font-family: 'DomaineDispNar-Semibold', sans-serif;
+  font-weight: 600;
+}
+
+.font-nineties {
+  font-family: 'Nineties', sans-serif;
+  font-weight: 400;
 }
