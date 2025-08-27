@@ -33,6 +33,34 @@ function useIntersectionObserver(options = {}) {
 
 const PAGE_PADDING = 'w-full md:max-w-3xl mx-auto px-8 md:px-0'
 
+const projects = [
+  {
+    title: "Cheese",
+    description: "Capture, organize, and share your everyday adventures with beautiful photo collections that tell your story.",
+    href: "https://cheeseday.co",
+  },
+  {
+    title: "Council",
+    description: "An intelligent case management and legal assistant platform powered by multiple AI agents working together like a legal team.",
+    href: "https://council.legal",
+  },
+  {
+    title: "HeartPins",
+    description: "Track your love journey through kisses. Bring back the fun in being intentional and intimate with the ones you love.",
+    href: "https://heartpins.app",
+  },
+  {
+    title: "MementoSpace",
+    description: "Capture and preserve your most cherished memories, life lessons, and personal reflections. Memento helps you create a private archive of stories for your children, your younger self, and your future self.",
+    href: "https://mementospace.com",
+  },
+  {
+    title: "StudyNotes",
+    description: "Upload your lecture slides and get detailed study notes, interactive quizzes, and an AI that explains it all instantly.",
+    href: "https://sn.deadal.us",
+  },
+];
+
 export default function Home() {
   const [isScrolled, setIsScrolled] = useState(false);
 
@@ -171,33 +199,34 @@ export default function Home() {
           <div className="max-w-4xl mx-auto">
             <h2 className="text-3xl sm:text-3xl md:text-4xl lg:text-4xl font-nineties text-gray-900 mb-8 sm:mb-12 md:mb-16">Current Projects</h2>
             <div className="space-y-4 md:space-y-6">
-              <a href="https://cheeseday.co" target="_blank" rel="noopener noreferrer" className="group flex flex-col sm:flex-row justify-between items-start sm:items-center py-6 border-b border-gray-100 hover:bg-white hover:shadow-sm hover:-translate-y-1 transition-all duration-300 rounded-lg cursor-pointer">
-                <div className="flex-1 mb-3 sm:mb-0">
-                  <h3 className="text-lg md:text-xl font-medium text-gray-900 group-hover:text-black transition-colors">Cheese</h3>
-                  <p className="text-gray-500 group-hover:text-gray-600 transition-colors text-sm sm:text-base">Capture, organize, and share your everyday adventures with beautiful photo collections that tell your story.</p>
-                </div>
-                <svg className="hidden sm:block w-5 h-5 text-gray-400 group-hover:text-black group-hover:translate-x-1 transition-all duration-300 self-end sm:self-center" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                </svg>
-              </a>
-              <a href="https://council.legal" target="_blank" rel="noopener noreferrer" className="group flex flex-col sm:flex-row justify-between items-start sm:items-center py-6 hover:bg-white hover:shadow-sm hover:-translate-y-1 transition-all duration-300 rounded-lg cursor-pointer">
-                <div className="flex-1 mb-3 sm:mb-0">
-                  <h3 className="text-lg md:text-xl font-medium text-gray-900 group-hover:text-black transition-colors">Council</h3>
-                  <p className="text-gray-500 group-hover:text-gray-600 transition-colors text-sm sm:text-base">An intelligent case management and legal assistant platform powered by multiple AI agents working together like a legal team.</p>
-                </div>
-                <svg className="hidden sm:block w-5 h-5 text-gray-400 group-hover:text-black group-hover:translate-x-1 transition-all duration-300 self-end sm:self-center" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                </svg>
-              </a>
-              <a href="https://heartpins.app" target="_blank" rel="noopener noreferrer" className="group flex flex-col sm:flex-row justify-between items-start sm:items-center py-6 hover:bg-white hover:shadow-sm hover:-translate-y-1 transition-all duration-300 rounded-lg cursor-pointer">
-                <div className="flex-1 mb-3 sm:mb-0">
-                  <h3 className="text-lg md:text-xl font-medium text-gray-900 group-hover:text-black transition-colors">HeartPins</h3>
-                  <p className="text-gray-500 group-hover:text-gray-600 transition-colors text-sm sm:text-base">Track your love journey through kisses. Bring back the fun in being intentional and intimate with the ones you love.</p>
-                </div>
-                <svg className="hidden sm:block w-5 h-5 text-gray-400 group-hover:text-black group-hover:translate-x-1 transition-all duration-300 self-end sm:self-center" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                </svg>
-              </a>
+              {projects.map((project, index) => (
+                <a
+                  key={index}
+                  href={project.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={`group flex flex-col sm:flex-row justify-between items-start sm:items-center py-6 hover:bg-white hover:shadow-sm hover:-translate-y-1 transition-all duration-300 rounded-lg cursor-pointer ${
+                    index < projects.length - 1 ? "border-b border-gray-100" : ""
+                  }`}
+                >
+                  <div className="flex-1 mb-3 sm:mb-0">
+                    <h3 className="text-lg md:text-xl font-medium text-gray-900 group-hover:text-black transition-colors">
+                      {project.title}
+                    </h3>
+                    <p className="text-gray-500 group-hover:text-gray-600 transition-colors text-sm sm:text-base">
+                      {project.description}
+                    </p>
+                  </div>
+                  <svg
+                    className="hidden sm:block w-5 h-5 text-gray-400 group-hover:text-black group-hover:translate-x-1 transition-all duration-300 self-end sm:self-center"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                  </svg>
+                </a>
+              ))}
             </div>
           </div>
         </section>
