@@ -95,10 +95,10 @@ const fellows = [
     shadowColor: "#008000",
   },
   {
-    name: "Cirlorm",
+    name: "Selorm",
     role: "Product Engineering",
     github: "https://github.com/champ3oy",
-    initial: "C",
+    initial: "S",
     bgColor: "bg-orange-200",
     shadowColor: "#ffa500",
   },
