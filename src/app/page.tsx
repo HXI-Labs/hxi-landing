@@ -73,7 +73,7 @@ const fellows = [
   {
     name: "Evans",
     role: "R&D",
-    github: "https://github.com/",
+    github: "https://github.com/devkyle4",
     initial: "E",
     bgColor: "bg-yellow-200",
     shadowColor: "#f59e0b",
@@ -112,9 +112,9 @@ const fellows = [
   },
   {
     name: "Ephraim",
-    role: "Product Engineering",
+    role: "Software Engineering",
     github: "https://github.com/ephraimduncan",
-    initial: "E",
+    initial: "ED",
     bgColor: "bg-emerald-200",
     shadowColor: "#10b981",
   }
