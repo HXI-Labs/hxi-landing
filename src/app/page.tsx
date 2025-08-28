@@ -61,6 +61,65 @@ const projects = [
   },
 ];
 
+const fellows = [
+  {
+    name: "Jerry",
+    role: "R&D",
+    github: "https://github.com/buabaj",
+    initial: "J",
+    bgColor: "bg-blue-200",
+    shadowColor: "#1e3a8a",
+  },
+  {
+    name: "Evans",
+    role: "R&D",
+    github: "https://github.com/",
+    initial: "E",
+    bgColor: "bg-yellow-200",
+    shadowColor: "#f59e0b",
+  },
+  {
+    name: "Ephraim",
+    role: "Software Engineering",
+    github: "https://github.com/greatnessmensah",
+    initial: "E",
+    bgColor: "bg-purple-200",
+    shadowColor: "#7e57c2",
+  },
+  {
+    name: "Ben",
+    role: "Software Engineering",
+    github: "https://github.com/benacq",
+    initial: "B",
+    bgColor: "bg-green-200",
+    shadowColor: "#008000",
+  },
+  {
+    name: "Cirlorm",
+    role: "Product Engineering",
+    github: "https://github.com/champ3oy",
+    initial: "C",
+    bgColor: "bg-orange-200",
+    shadowColor: "#ffa500",
+  },
+  {
+    name: "Phillipa",
+    role: "Product Engineering",
+    github: "https://github.com/abena07",
+    initial: "P",
+    bgColor: "bg-pink-200",
+    shadowColor: "#ffc0cb",
+  },
+  {
+    name: "Ephraim",
+    role: "Product Engineering",
+    github: "https://github.com/ephraimduncan",
+    initial: "E",
+    bgColor: "bg-emerald-200",
+    shadowColor: "#10b981",
+  }
+];
+
 export default function Home() {
   const [isScrolled, setIsScrolled] = useState(false);
 
@@ -241,42 +300,78 @@ export default function Home() {
             <div className="flex items-start justify-start mb-10">
               <h2 className="text-3xl sm:text-3xl md:text-4xl lg:text-4xl font-nineties text-gray-900">Our Fellows</h2>
             </div>
-            <div className="flex justify-center">
+            <div className="flex flex-col justify-center">
+            <h3 className="text- text-gray-500 mb-4 col-span-full text-left">R&D</h3>
               <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-6 sm:gap-8 md:gap-12">
-                <a href="https://github.com/buabaj" target="_blank" rel="noopener noreferrer" className="group text-center hover:-translate-y-2 transition-all duration-300 cursor-pointer">
-                  <div className="w-20 h-20 md:w-24 md:h-24 bg-blue-200 rounded-3xl flex items-center justify-center mb-4 mx-auto group-hover:shadow-lg group-hover:scale-110 transition-all duration-300" style={{ boxShadow: 'inset 0 8px 0 0 #1e3a8a' }}>
-                    <span className="text-2xl md:text-3xl font-medium text-blue-800">J</span>
-                  </div>
-                  <h3 className="text-base md:text-lg font-medium text-gray-900 group-hover:text-blue-600 transition-colors mb-1">Jerry</h3>
-                  <p className="text-sm md:text-base text-gray-600 group-hover:text-gray-700 transition-colors">R&D</p>
-                </a>
-                <a href="https://github.com/greatnessmensah" target="_blank" rel="noopener noreferrer" className="group text-center hover:-translate-y-2 transition-all duration-300 cursor-pointer">
-                  <div className="w-20 h-20 md:w-24 md:h-24 bg-purple-200 rounded-3xl flex items-center justify-center mb-4 mx-auto group-hover:shadow-lg group-hover:scale-110 transition-all duration-300" style={{ boxShadow: 'inset 0 8px 0 0 #7e57c2' }}>
-                    <span className="text-2xl md:text-3xl font-medium text-purple-800">E</span>
-                  </div>
-                  <h3 className="text-base md:text-lg font-medium text-gray-900 group-hover:text-purple-600 transition-colors mb-1">Ephraim</h3>
-                  <p className="text-sm md:text-base text-gray-600 group-hover:text-gray-700 transition-colors">Software Engineering</p>
-                </a>
-                <a href="https://github.com/benacq" target="_blank" rel="noopener noreferrer" className="group text-center hover:-translate-y-2 transition-all duration-300 cursor-pointer">
-                  <div className="w-20 h-20 md:w-24 md:h-24 bg-green-200 rounded-3xl flex items-center justify-center mb-4 mx-auto group-hover:shadow-lg group-hover:scale-110 transition-all duration-300" style={{ boxShadow: 'inset 0 8px 0 0 #008000' }}>
-                    <span className="text-2xl md:text-3xl font-medium text-green-800">B</span>
-                  </div>
-                  <h3 className="text-base md:text-lg font-medium text-gray-900 group-hover:text-green-600 transition-colors mb-1">Ben</h3>
-                  <p className="text-sm md:text-base text-gray-600 group-hover:text-gray-700 transition-colors leading-tight">Software Engineering</p>
-                </a>
-                <a href="https://github.com/champ3oy" target="_blank" rel="noopener noreferrer" className="group text-center hover:-translate-y-2 transition-all duration-300 cursor-pointer">
-                  <div className="w-20 h-20 md:w-24 md:h-24 bg-orange-200 rounded-3xl flex items-center justify-center mb-4 mx-auto group-hover:shadow-lg group-hover:scale-110 transition-all duration-300" style={{ boxShadow: 'inset 0 8px 0 0 #ffa500' }}>
-                    <span className="text-2xl md:text-3xl font-medium text-orange-800">C</span>
-                  </div>
-                  <h3 className="text-base md:text-lg font-medium text-gray-900 group-hover:text-orange-600 transition-colors mb-1">Cirlorm</h3>
-                  <p className="text-sm md:text-base text-gray-600 group-hover:text-gray-700 transition-colors">Product Engineering</p>
-                </a>
-                <a href="https://github.com/abena07" target="_blank" rel="noopener noreferrer" className="group text-center hover:-translate-y-2 transition-all duration-300 cursor-pointer">
-                  <div className="w-20 h-20 md:w-24 md:h-24 bg-pink-200 rounded-3xl flex items-center justify-center mb-4 mx-auto group-hover:shadow-lg group-hover:scale-110 transition-all duration-300" style={{ boxShadow: 'inset 0 8px 0 0 #ffc0cb' }}>
-                    <span className="text-2xl md:text-3xl font-medium text-pink-800">P</span>
-                  </div>
-                  <h3 className="text-base md:text-lg font-medium text-gray-900 group-hover:text-pink-600 transition-colors mb-1">Phillipa</h3>
-                  <p className="text-sm md:text-base text-gray-600 group-hover:text-gray-700 transition-colors">Product Engineering</p>
+                {fellows.filter(fellow => fellow.role === "R&D").map((fellow, index) => (
+                  <a
+                    key={index}
+                    href={fellow.github}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="group text-center hover:-translate-y-2 transition-all duration-300 cursor-pointer"
+                  >
+                    <div className={`${fellow.bgColor} w-20 h-20 md:w-24 md:h-24 rounded-3xl flex items-center justify-center mb-4 mx-auto group-hover:shadow-lg group-hover:scale-110 transition-all duration-300`} style={{ boxShadow: `inset 0 8px 0 0 ${fellow.shadowColor}` }}>
+                      <span className="text-2xl md:text-3xl font-nineties text-gray-800">{fellow.initial}</span>
+                    </div>
+                    <h3 className="text-base md:text-lg font-medium text-gray-900 group-hover:text-gray-900 transition-colors mb-1">{fellow.name}</h3>
+                    {/* <p className="text-sm md:text-base text-gray-600 group-hover:text-gray-700 transition-colors">{fellow.role}</p> */}
+                  </a>
+                ))}
+              </div>
+            </div>
+
+            <div className="flex flex-col justify-center mt-10">
+
+            <h3 className="text- text-gray-500 mb-4 col-span-full text-left">Software Engineering</h3>
+              <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-6 sm:gap-8 md:gap-12">
+                {fellows.filter(fellow => fellow.role === "Software Engineering").map((fellow, index) => (
+                  <a
+                    key={index}
+                    href={fellow.github}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="group text-center hover:-translate-y-2 transition-all duration-300 cursor-pointer"
+                  >
+                    <div className={`${fellow.bgColor} w-20 h-20 md:w-24 md:h-24 rounded-3xl flex items-center justify-center mb-4 mx-auto group-hover:shadow-lg group-hover:scale-110 transition-all duration-300`} style={{ boxShadow: `inset 0 8px 0 0 ${fellow.shadowColor}` }}>
+                      <span className="text-2xl md:text-3xl font-nineties text-gray-800">{fellow.initial}</span>
+                    </div>
+                    <h3 className="text-base md:text-lg font-medium text-gray-900 group-hover:text-gray-900 transition-colors mb-1">{fellow.name}</h3>
+                    {/* <p className="text-sm md:text-base text-gray-600 group-hover:text-gray-700 transition-colors">{fellow.role}</p> */}
+                  </a>
+                ))}
+              </div>
+            </div>
+
+            <div className="flex flex-col justify-center mt-10">
+            <h3 className="text- text-gray-500 mb-4 col-span-full text-left">Product Engineering</h3>
+              <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-6 sm:gap-8 md:gap-12">
+                {fellows.filter(fellow => fellow.role === "Product Engineering").map((fellow, index) => (
+                  <a
+                    key={index}
+                    href={fellow.github}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="group text-center hover:-translate-y-2 transition-all duration-300 cursor-pointer"
+                  >
+                    <div className={`${fellow.bgColor} w-20 h-20 md:w-24 md:h-24 rounded-3xl flex items-center justify-center mb-4 mx-auto group-hover:shadow-lg group-hover:scale-110 transition-all duration-300`} style={{ boxShadow: `inset 0 8px 0 0 ${fellow.shadowColor}` }}>
+                      <span className="text-2xl md:text-3xl font-nineties text-gray-800">{fellow.initial}</span>
+                    </div>
+                    <h3 className="text-base md:text-lg font-medium text-gray-900 group-hover:text-gray-900 transition-colors mb-1">{fellow.name}</h3>
+                    {/* <p className="text-sm md:text-base text-gray-600 group-hover:text-gray-700 transition-colors">{fellow.role}</p> */}
+                  </a>
+                ))}
+              </div>
+            </div>
+
+            <div className='flex flex-col justify-center mt-10'>
+              <h3 className='text-xl text-black mb-4 col-span-full text-left font-nineties'>Become a Fellow</h3>
+              <div className='flex flex-col justify-center'>
+                <p className='text-gray-900 hover:text-gray-900 transition-colors'>
+                  We're always looking for talented individuals to join our team. If you're interested in working with us, please send us an email.
+                </p>
+                <a href='https://hxilabs.fillout.com/fellowship' className='w-fit mt-5 bg-black text-white px-4 py-2 rounded-lg text-base font-nineties'>
+                  Apply Now
                 </a>
               </div>
             </div>
