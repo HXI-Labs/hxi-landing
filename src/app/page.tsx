@@ -149,9 +149,14 @@ export default function Home() {
           <h1 className="text-xl font-bold text-gray-900">
             <img src="/logo3.svg" alt="HXI Labs" width={50}/>
           </h1>
-          <a href="mailto:hello@hxilabs.com" className="flex items-center gap-2 text-gray-600 hover:text-gray-900 transition-colors font-semibold">
-            hello@hxilabs.com
-          </a>
+          <div className="flex items-center gap-6">
+            <a href="/plan" className="text-gray-600 hover:text-gray-900 transition-colors font-semibold">
+              Plan
+            </a>
+            <a href="mailto:hello@hxilabs.com" className="flex items-center gap-2 text-gray-600 hover:text-gray-900 transition-colors font-semibold">
+              hello@hxilabs.com
+            </a>
+          </div>
         </div>
       </header>
 
@@ -164,20 +169,20 @@ export default function Home() {
             }`}
         >
           <div className="max-w-5xl mx-auto text-left">
-            <div className="flex flex-col items-start mb-10">
+            <div className="flex flex-col items-start mb-8">
               <h1 className="text-6xl sm:text-6xl md:text-8xl lg:text-8xl font-nineties text-gray-900 mb-1 tracking-tight">
                 Human Experience
               </h1>
-              <h2 className="text-6xl sm:text-6xl md:text-8xl lg:text-8xl font-nineties text-gray-400 mb-6 sm:mb-8 md:mb-10 tracking-tight">
+              <h2 className="text-6xl sm:text-6xl md:text-8xl lg:text-8xl font-nineties text-gray-400 mb-4 sm:mb-6 md:mb-8 tracking-tight">
                 Interaction
               </h2>
             </div>
 
-            <h3 className="font-nineties text-3xl sm:text-3xl md:text-3xl lg:text-3xl font-normal text-black mb-8 sm:mb-5 md:mb-5">
+            <h3 className="font-nineties text-3xl sm:text-3xl md:text-3xl lg:text-3xl font-normal text-black mb-6 sm:mb-4 md:mb-4">
               The Space Between
             </h3>
 
-            <div className="max-w-3xl mx-auto space-y-6">
+            <div className="max-w-3xl mx-auto space-y-4">
               <p className="text-base md:text-lg text-gray-700 leading-relaxed">
                 Technology shapes how we connect, remember, and feel. Yet too often, digital
                 experiences pull us away from what matters most; authentic human moments.
