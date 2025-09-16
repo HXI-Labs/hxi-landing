@@ -42,14 +42,14 @@ function PulsingArrow() {
   };
 
   return (
-    <div className="absolute bottom-20 sm:bottom-24 left-1/2 transform -translate-x-1/2">
+    <div className="absolute bottom-8 sm:bottom-12 left-1/2 transform -translate-x-1/2">
       <button
         onClick={scrollToNext}
-        className="group flex flex-col items-center space-y-2 text-gray-400 hover:text-gray-600 transition-colors duration-300"
+        className="group flex flex-col items-center space-y-1 sm:space-y-2 text-gray-400 hover:text-gray-600 transition-colors duration-300"
       >
-        <span className="text-xs font-medium tracking-wide uppercase">Scroll</span>
+        <span className="text-xs font-medium tracking-wide uppercase">Explore Our Vision</span>
         <div className="animate-bounce">
-          <ChevronDown className="w-6 h-6 md:w-8 md:h-8" strokeWidth={1.5} />
+          <ChevronDown className="w-5 h-5 sm:w-6 sm:h-6 md:w-8 md:h-8" strokeWidth={1.5} />
         </div>
       </button>
     </div>
@@ -105,7 +105,7 @@ function Section({
 // Slide component for slideshow view
 function Slide({ children, className = "", background = "bg-white" }: { children: React.ReactNode, className?: string, background?: string }) {
   return (
-    <div className={`min-h-screen flex flex-col justify-center items-center px-6 py-20 ${background} ${className}`}>
+    <div className={`w-full flex flex-col justify-center items-center px-4 sm:px-6 py-8 sm:py-12 ${background} ${className}`}>
       <div className="max-w-4xl mx-auto text-center">
         {children}
       </div>
@@ -274,21 +274,21 @@ function AICapabilities() {
   ];
 
   return (
-    <div className="space-y-8">
-      <div className="text-center mb-8">
-        <p className="text-lg md:text-xl text-gray-600 mb-4">AI as collaborator, not replacement</p>
-        <p className="text-base md:text-lg font-medium text-gray-700">
+    <div className="space-y-6 sm:space-y-8 px-4 sm:px-0">
+      <div className="text-center mb-6 sm:mb-8">
+        <p className="text-base sm:text-lg md:text-xl text-gray-600 mb-3 sm:mb-4">AI as collaborator, not replacement</p>
+        <p className="text-sm sm:text-base md:text-lg font-medium text-gray-700">
           Humanizing AI - softer, contextual, emotionally intelligent
         </p>
       </div>
       
-      <div className="grid md:grid-cols-2 gap-6 md:gap-8">
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 md:gap-8">
         {capabilities.map(({ icon: Icon, title, description }, index) => (
-          <div key={index} className="flex items-center space-x-4 p-6 bg-gray-50 rounded-xl">
-            <Icon className="w-8 h-8 text-gray-700 flex-shrink-0" strokeWidth={1.5} />
+          <div key={index} className="flex items-center space-x-3 sm:space-x-4 p-4 sm:p-6 bg-gray-50 rounded-xl">
+            <Icon className="w-6 h-6 sm:w-8 sm:h-8 text-gray-700 flex-shrink-0" strokeWidth={1.5} />
             <div className="text-left">
-              <h4 className="font-medium text-gray-900">{title}</h4>
-              <p className="text-sm text-gray-600">{description}</p>
+              <h4 className="font-medium text-gray-900 text-sm sm:text-base">{title}</h4>
+              <p className="text-xs sm:text-sm text-gray-600">{description}</p>
             </div>
           </div>
         ))}
@@ -323,23 +323,23 @@ function FutureVision() {
   ];
 
   return (
-    <div className="space-y-8">
-      <div className="text-center mb-8">
-        <p className="text-lg md:text-xl text-gray-600 mb-8">The future of technology will feel:</p>
+    <div className="space-y-6 sm:space-y-8 px-4 sm:px-0">
+      <div className="text-center mb-6 sm:mb-8">
+        <p className="text-base sm:text-lg md:text-xl text-gray-600 mb-6 sm:mb-8">The future of technology will feel:</p>
       </div>
       
-      <div className="grid md:grid-cols-4 gap-6 md:gap-8">
+      <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 sm:gap-6 md:gap-8">
         {visionItems.map(({ icon: Icon, title, description }, index) => (
-          <div key={index} className="text-center space-y-4">
-            <Icon className="w-10 h-10 md:w-12 md:h-12 text-gray-700 mx-auto" strokeWidth={1.5} />
-            <h4 className="text-base md:text-lg font-semibold text-gray-900">{title}</h4>
-            <p className="text-sm text-gray-600">{description}</p>
+          <div key={index} className="text-center space-y-3 sm:space-y-4">
+            <Icon className="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 text-gray-700 mx-auto" strokeWidth={1.5} />
+            <h4 className="text-sm sm:text-base md:text-lg font-semibold text-gray-900">{title}</h4>
+            <p className="text-xs sm:text-sm text-gray-600">{description}</p>
           </div>
         ))}
       </div>
       
-      <div className="text-center mt-8">
-        <p className="text-lg md:text-xl font-medium text-gray-800">
+      <div className="text-center mt-6 sm:mt-8">
+        <p className="text-base sm:text-lg md:text-xl font-medium text-gray-800">
           Technology that enhances life instead of distracting from it
         </p>
       </div>
@@ -353,18 +353,22 @@ export default function PlanPage() {
   
   // Intersection observer hooks for each section
   const [heroRef, heroVisible] = useIntersectionObserver() as [React.RefObject<HTMLElement>, boolean];
+  
+  // Touch/swipe navigation state
+  const [touchStart, setTouchStart] = useState<number | null>(null);
+  const [touchEnd, setTouchEnd] = useState<number | null>(null);
 
   const slides = [
     // Title Slide
     {
       component: (
         <Slide background="bg-gradient-to-b from-gray-50 to-white">
-          <div className="space-y-8">
-            <h1 className="text-5xl md:text-7xl font-nineties text-gray-900 mb-4">
+          <div className="space-y-6 sm:space-y-8">
+            <h1 className="text-3xl sm:text-5xl md:text-7xl font-nineties text-gray-900 mb-4">
               HXI Labs
             </h1>
-            <div className="h-px w-32 bg-gray-300 mx-auto"></div>
-            <p className="text-xl md:text-2xl font-light text-gray-600">
+            <div className="h-px w-24 sm:w-32 bg-gray-300 mx-auto"></div>
+            <p className="text-lg sm:text-xl md:text-2xl font-light text-gray-600">
               Designing the Future of Human Experience
             </p>
           </div>
@@ -376,16 +380,16 @@ export default function PlanPage() {
     {
       component: (
         <Slide background="bg-gray-50">
-          <div className="space-y-8">
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-nineties text-gray-900 mb-8">Executive Summary</h2>
-            <div className="space-y-6 text-left max-w-3xl mx-auto">
-              <p className="text-lg md:text-xl text-gray-700 leading-relaxed">
+          <div className="space-y-6 sm:space-y-8">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-nineties text-gray-900 mb-4 sm:mb-8">Executive Summary</h2>
+            <div className="space-y-4 sm:space-y-6 text-left max-w-3xl mx-auto px-4 sm:px-0">
+              <p className="text-base sm:text-lg md:text-xl text-gray-700 leading-relaxed">
                 A human experience research lab exploring how technology, design, and AI can deepen the way we live, connect, and create.
               </p>
-              <p className="text-base md:text-lg text-gray-600">
+              <p className="text-sm sm:text-base md:text-lg text-gray-600">
                 We're not a traditional product company. We're a space for exploration.
               </p>
-              <p className="text-lg font-medium text-gray-800 italic text-center mt-8">
+              <p className="text-base sm:text-lg font-medium text-gray-800 italic text-center mt-6 sm:mt-8">
                 The next chapter of technology will be defined by expression, intentionality, and emotional depth.
               </p>
             </div>
@@ -398,14 +402,14 @@ export default function PlanPage() {
     {
       component: (
         <Slide>
-          <div className="space-y-8">
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-nineties text-gray-900 mb-8">Our Mission</h2>
-            <div className="bg-gray-50 p-6 md:p-8 rounded-2xl max-w-4xl mx-auto">
-              <p className="text-xl md:text-2xl font-light text-gray-800 leading-relaxed italic mb-6">
+          <div className="space-y-6 sm:space-y-8">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-nineties text-gray-900 mb-4 sm:mb-8">Our Mission</h2>
+            <div className="bg-gray-50 p-4 sm:p-6 md:p-8 rounded-2xl max-w-4xl mx-auto mx-4 sm:mx-auto">
+              <p className="text-lg sm:text-xl md:text-2xl font-light text-gray-800 leading-relaxed italic mb-4 sm:mb-6">
                 "To explore, invent, and design technologies that honor human complexity and make digital interaction more meaningful, intimate, and alive."
               </p>
             </div>
-            <p className="text-base md:text-lg text-gray-600 max-w-2xl mx-auto">
+            <p className="text-sm sm:text-base md:text-lg text-gray-600 max-w-2xl mx-auto px-4 sm:px-0">
               Digital spaces should feel like living spaces - flexible, personal, and full of texture.
             </p>
           </div>
@@ -417,20 +421,20 @@ export default function PlanPage() {
     {
       component: (
         <Slide background="bg-gray-50">
-          <div className="space-y-8">
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-nineties text-gray-900 mb-8">Why We Exist</h2>
-            <div className="space-y-6 max-w-3xl mx-auto">
-              <p className="text-lg md:text-xl text-gray-700 mb-8">
+          <div className="space-y-6 sm:space-y-8">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-nineties text-gray-900 mb-4 sm:mb-8">Why We Exist</h2>
+            <div className="space-y-4 sm:space-y-6 max-w-3xl mx-auto px-4 sm:px-0">
+              <p className="text-base sm:text-lg md:text-xl text-gray-700 mb-6 sm:mb-8">
                 Most technology is built to capture attention, not deepen experience.
               </p>
-              <div className="bg-white p-6 md:p-8 rounded-2xl border border-gray-200">
-                <div className="space-y-4">
-                  <p className="text-gray-600 italic">We scroll endlessly but rarely feel nourished.</p>
-                  <p className="text-gray-600 italic">We capture everything but struggle to remember meaningfully.</p>
-                  <p className="text-gray-600 italic">We communicate constantly but often miss genuine connection.</p>
+              <div className="bg-white p-4 sm:p-6 md:p-8 rounded-2xl border border-gray-200">
+                <div className="space-y-3 sm:space-y-4">
+                  <p className="text-gray-600 italic text-sm sm:text-base">We scroll endlessly but rarely feel nourished.</p>
+                  <p className="text-gray-600 italic text-sm sm:text-base">We capture everything but struggle to remember meaningfully.</p>
+                  <p className="text-gray-600 italic text-sm sm:text-base">We communicate constantly but often miss genuine connection.</p>
                 </div>
               </div>
-              <p className="text-lg font-medium text-gray-800">
+              <p className="text-base sm:text-lg font-medium text-gray-800">
                 It's time to design a different relationship with technology.
               </p>
             </div>
@@ -443,21 +447,21 @@ export default function PlanPage() {
     {
       component: (
         <Slide>
-          <div className="space-y-8">
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-nineties text-gray-900 mb-8">Our Approach</h2>
-            <p className="text-lg md:text-xl text-gray-600 mb-8">Research-first lab. Every project starts with a question, not a roadmap.</p>
-            <div className="grid md:grid-cols-3 gap-6 md:gap-8 max-w-4xl mx-auto">
-              <div className="text-center space-y-4">
-                <Search className="w-8 h-8 md:w-10 md:h-10 text-gray-700 mx-auto" strokeWidth={1.5} />
-                <h4 className="text-base md:text-lg font-medium">Exploration over output</h4>
+          <div className="space-y-6 sm:space-y-8">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-nineties text-gray-900 mb-4 sm:mb-8">Our Approach</h2>
+            <p className="text-base sm:text-lg md:text-xl text-gray-600 mb-6 sm:mb-8 px-4 sm:px-0">Research-first lab. Every project starts with a question, not a roadmap.</p>
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6 md:gap-8 max-w-4xl mx-auto">
+              <div className="text-center space-y-3 sm:space-y-4">
+                <Search className="w-6 h-6 sm:w-8 sm:h-8 md:w-10 md:h-10 text-gray-700 mx-auto" strokeWidth={1.5} />
+                <h4 className="text-sm sm:text-base md:text-lg font-medium">Exploration over output</h4>
               </div>
-              <div className="text-center space-y-4">
-                <Heart className="w-8 h-8 md:w-10 md:h-10 text-gray-700 mx-auto" strokeWidth={1.5} />
-                <h4 className="text-base md:text-lg font-medium">Emotionally aware design</h4>
+              <div className="text-center space-y-3 sm:space-y-4">
+                <Heart className="w-6 h-6 sm:w-8 sm:h-8 md:w-10 md:h-10 text-gray-700 mx-auto" strokeWidth={1.5} />
+                <h4 className="text-sm sm:text-base md:text-lg font-medium">Emotionally aware design</h4>
               </div>
-              <div className="text-center space-y-4">
-                <Clock className="w-8 h-8 md:w-10 md:h-10 text-gray-700 mx-auto" strokeWidth={1.5} />
-                <h4 className="text-base md:text-lg font-medium">Living in the present</h4>
+              <div className="text-center space-y-3 sm:space-y-4">
+                <Clock className="w-6 h-6 sm:w-8 sm:h-8 md:w-10 md:h-10 text-gray-700 mx-auto" strokeWidth={1.5} />
+                <h4 className="text-sm sm:text-base md:text-lg font-medium">Living in the present</h4>
               </div>
             </div>
           </div>
@@ -469,28 +473,28 @@ export default function PlanPage() {
     {
       component: (
         <Slide background="bg-gray-50">
-          <div className="space-y-8">
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-nineties text-gray-900 mb-8">Areas of Exploration</h2>
-            <div className="grid md:grid-cols-2 gap-6 md:gap-8 max-w-4xl mx-auto">
-              <div className="text-center space-y-4 p-4 md:p-6">
-                <Brain className="w-10 h-10 md:w-12 md:h-12 text-gray-700 mx-auto" strokeWidth={1.5} />
-                <h3 className="text-lg md:text-xl font-medium">Memory and Meaning</h3>
-                <p className="text-gray-600">Capture and resurface life's fragments</p>
+          <div className="space-y-6 sm:space-y-8">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-nineties text-gray-900 mb-4 sm:mb-8">Areas of Exploration</h2>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 md:gap-8 max-w-4xl mx-auto px-4 sm:px-0">
+              <div className="text-center space-y-3 sm:space-y-4 p-3 sm:p-4 md:p-6">
+                <Brain className="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 text-gray-700 mx-auto" strokeWidth={1.5} />
+                <h3 className="text-base sm:text-lg md:text-xl font-medium text-gray-900">Memory and Meaning</h3>
+                <p className="text-gray-600 text-sm sm:text-base">Capture and resurface life's fragments</p>
               </div>
-              <div className="text-center space-y-4 p-4 md:p-6">
-                <User className="w-10 h-10 md:w-12 md:h-12 text-gray-700 mx-auto" strokeWidth={1.5} />
-                <h3 className="text-lg md:text-xl font-medium">Digital Identity</h3>
-                <p className="text-gray-600">Fluid, authentic self-expression</p>
+              <div className="text-center space-y-3 sm:space-y-4 p-3 sm:p-4 md:p-6">
+                <User className="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 text-gray-700 mx-auto" strokeWidth={1.5} />
+                <h3 className="text-base sm:text-lg md:text-xl font-medium text-gray-900">Digital Identity</h3>
+                <p className="text-gray-600 text-sm sm:text-base">Fluid, authentic self-expression</p>
               </div>
-              <div className="text-center space-y-4 p-4 md:p-6">
-                <Heart className="w-10 h-10 md:w-12 md:h-12 text-gray-700 mx-auto" strokeWidth={1.5} />
-                <h3 className="text-lg md:text-xl font-medium">Connection & Intimacy</h3>
-                <p className="text-gray-600">Natural, meaningful bonding</p>
+              <div className="text-center space-y-3 sm:space-y-4 p-3 sm:p-4 md:p-6">
+                <Heart className="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 text-gray-700 mx-auto" strokeWidth={1.5} />
+                <h3 className="text-base sm:text-lg md:text-xl font-medium text-gray-900">Connection & Intimacy</h3>
+                <p className="text-gray-600 text-sm sm:text-base">Natural, meaningful bonding</p>
               </div>
-              <div className="text-center space-y-4 p-4 md:p-6">
-                <Sparkles className="w-10 h-10 md:w-12 md:h-12 text-gray-700 mx-auto" strokeWidth={1.5} />
-                <h3 className="text-lg md:text-xl font-medium">Intelligence & Emergence</h3>
-                <p className="text-gray-600">AI that supports creativity</p>
+              <div className="text-center space-y-3 sm:space-y-4 p-3 sm:p-4 md:p-6">
+                <Sparkles className="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 text-gray-700 mx-auto" strokeWidth={1.5} />
+                <h3 className="text-base sm:text-lg md:text-xl font-medium text-gray-900">Intelligence & Emergence</h3>
+                <p className="text-gray-600 text-sm sm:text-base">AI that supports creativity</p>
               </div>
             </div>
           </div>
@@ -502,8 +506,8 @@ export default function PlanPage() {
     {
       component: (
         <Slide>
-          <div className="space-y-8">
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-nineties text-gray-900 mb-8">The Role of AI</h2>
+          <div className="space-y-6 sm:space-y-8">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-nineties text-gray-900 mb-4 sm:mb-8">The Role of AI</h2>
             <AICapabilities />
           </div>
         </Slide>
@@ -514,30 +518,30 @@ export default function PlanPage() {
     {
       component: (
         <Slide background="bg-gray-50">
-          <div className="space-y-8">
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-nineties text-gray-900 mb-8">Why Invest in HXI Labs</h2>
-            <p className="text-lg md:text-xl text-gray-700 mb-8">
+          <div className="space-y-6 sm:space-y-8">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-nineties text-gray-900 mb-4 sm:mb-8">Why Invest in HXI Labs</h2>
+            <p className="text-base sm:text-lg md:text-xl text-gray-700 mb-6 sm:mb-8 px-4 sm:px-0">
               Building a research engine that understands human experience
             </p>
-            <div className="grid md:grid-cols-2 gap-6 md:gap-8 max-w-4xl mx-auto text-left">
-              <div className="space-y-4">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 md:gap-8 max-w-4xl mx-auto text-left px-4 sm:px-0">
+              <div className="space-y-3 sm:space-y-4">
                 <div className="flex items-center space-x-3">
                   <div className="w-3 h-3 bg-gray-500 rounded-full"></div>
-                  <span className="text-gray-700">Bold vision for human-computer interaction</span>
+                  <span className="text-gray-700 text-sm sm:text-base">Bold vision for human-computer interaction</span>
                 </div>
                 <div className="flex items-center space-x-3">
                   <div className="w-3 h-3 bg-gray-500 rounded-full"></div>
-                  <span className="text-gray-700">Portfolio exploring identity, creativity, memory</span>
+                  <span className="text-gray-700 text-sm sm:text-base">Portfolio exploring identity, creativity, memory</span>
                 </div>
               </div>
-              <div className="space-y-4">
+              <div className="space-y-3 sm:space-y-4">
                 <div className="flex items-center space-x-3">
                   <div className="w-3 h-3 bg-gray-500 rounded-full"></div>
-                  <span className="text-gray-700">Intersection of design, psychology, technology</span>
+                  <span className="text-gray-700 text-sm sm:text-base">Intersection of design, psychology, technology</span>
                 </div>
                 <div className="flex items-center space-x-3">
                   <div className="w-3 h-3 bg-gray-500 rounded-full"></div>
-                  <span className="text-gray-700">Curiosity-driven, human-first approach</span>
+                  <span className="text-gray-700 text-sm sm:text-base">Curiosity-driven, human-first approach</span>
                 </div>
               </div>
             </div>
@@ -550,8 +554,8 @@ export default function PlanPage() {
     {
       component: (
         <Slide>
-          <div className="space-y-8">
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-nineties text-gray-900 mb-8">The Vision</h2>
+          <div className="space-y-6 sm:space-y-8">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-nineties text-gray-900 mb-4 sm:mb-8">The Vision</h2>
             <FutureVision />
           </div>
         </Slide>
@@ -562,16 +566,16 @@ export default function PlanPage() {
     {
       component: (
         <Slide background="bg-gradient-to-b from-gray-50 to-white">
-          <div className="space-y-8">
-            <h1 className="text-4xl md:text-6xl font-nineties text-gray-900 mb-4">
+          <div className="space-y-6 sm:space-y-8">
+            <h1 className="text-3xl sm:text-4xl md:text-6xl font-nineties text-gray-900 mb-4">
               Thank You
             </h1>
-            <div className="h-px w-32 bg-gray-300 mx-auto"></div>
-            <p className="text-xl md:text-2xl font-light text-gray-600">
+            <div className="h-px w-24 sm:w-32 bg-gray-300 mx-auto"></div>
+            <p className="text-lg sm:text-xl md:text-2xl font-light text-gray-600">
               Questions & Discussion
             </p>
-            <div className="pt-8">
-              <p className="text-base md:text-lg text-gray-500">
+            <div className="pt-6 sm:pt-8">
+              <p className="text-sm sm:text-base md:text-lg text-gray-500">
                 Visit us at{' '}
                 <a 
                   href="https://hxilabs.com" 
@@ -601,6 +605,33 @@ export default function PlanPage() {
     }
   };
 
+  // Touch/swipe handlers
+  const minSwipeDistance = 50;
+
+  const onTouchStart = (e: React.TouchEvent) => {
+    setTouchEnd(null);
+    setTouchStart(e.targetTouches[0].clientX);
+  };
+
+  const onTouchMove = (e: React.TouchEvent) => {
+    setTouchEnd(e.targetTouches[0].clientX);
+  };
+
+  const onTouchEnd = () => {
+    if (!touchStart || !touchEnd) return;
+    
+    const distance = touchStart - touchEnd;
+    const isLeftSwipe = distance > minSwipeDistance;
+    const isRightSwipe = distance < -minSwipeDistance;
+
+    if (isLeftSwipe && currentSlide < slides.length - 1) {
+      setCurrentSlide(currentSlide + 1);
+    }
+    if (isRightSwipe && currentSlide > 0) {
+      setCurrentSlide(currentSlide - 1);
+    }
+  };
+
   // Keyboard navigation for slides
   useEffect(() => {
     if (viewMode !== 'slides') return;
@@ -625,7 +656,12 @@ export default function PlanPage() {
 
   if (viewMode === 'slides') {
     return (
-      <div className="relative min-h-screen bg-white">
+      <div 
+        className="relative min-h-screen bg-white"
+        onTouchStart={onTouchStart}
+        onTouchMove={onTouchMove}
+        onTouchEnd={onTouchEnd}
+      >
         {/* Header with back button */}
         <div className="fixed top-3 left-3 sm:top-4 sm:left-4 z-50">
           <button 
@@ -638,7 +674,9 @@ export default function PlanPage() {
         </div>
 
         {/* Current Slide */}
-        {slides[currentSlide].component}
+        <div className="min-h-screen flex items-center justify-center px-4 sm:px-6 py-8 sm:py-12">
+          {slides[currentSlide].component}
+        </div>
 
         {/* Navigation */}
         <SlideNavigation
@@ -651,7 +689,7 @@ export default function PlanPage() {
         {/* Keyboard hint */}
         <div className="fixed bottom-16 sm:bottom-4 right-3 sm:right-4 text-xs text-gray-500 bg-white/90 backdrop-blur-sm px-2 py-1 sm:px-3 sm:py-2 rounded-lg border border-gray-200">
           <span className="hidden sm:inline">Use arrow keys or spacebar to navigate</span>
-          <span className="sm:hidden">Swipe or tap to navigate</span>
+          <span className="sm:hidden">Swipe left/right to navigate</span>
         </div>
       </div>
     );
@@ -661,16 +699,16 @@ export default function PlanPage() {
     <div className="min-h-screen bg-white">
       {/* Header */}
       <header className="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-sm border-b border-gray-200">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 py-3 sm:py-4">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 py-2 sm:py-4">
           <div className="flex justify-between items-center">
             <Link href="/" className="text-xl font-medium text-gray-900 hover:text-gray-600 transition-colors">
-              <img src="/logo3.svg" alt="HXI Labs" width={32} className="sm:w-10" />
+              <img src="/logo3.svg" alt="HXI Labs" width={28} className="sm:w-10" />
             </Link>
             
-            <div className="flex items-center space-x-4 sm:space-x-6">
+            <div className="flex items-center space-x-3 sm:space-x-6">
               <button
                 onClick={() => setViewMode('slides')}
-                className="text-xs sm:text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors duration-200"
+                className="text-xs sm:text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors duration-200 px-2 py-1 rounded hover:bg-gray-100"
               >
                 Slides
               </button>
@@ -683,19 +721,19 @@ export default function PlanPage() {
       </header>
 
       {/* Main Content */}
-      <main className="pt-16 sm:pt-20">
+      <main className="pt-12 sm:pt-20">
         {/* Hero Section */}
         <section 
           ref={heroRef}
-          className="h-screen flex flex-col justify-start items-center relative bg-gradient-to-b from-gray-50 to-white px-4 sm:px-6 pt-20 sm:pt-32"
+          className="min-h-screen flex flex-col justify-center items-center relative bg-gradient-to-b from-gray-50 to-white px-4 sm:px-6 py-16 sm:py-20"
         >
-          <div className="max-w-4xl mx-auto text-center space-y-4 sm:space-y-6">
-            <div className="space-y-3 sm:space-y-4">
-              <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-nineties text-gray-900">
+          <div className="max-w-4xl mx-auto text-center space-y-6 sm:space-y-8">
+            <div className="space-y-4 sm:space-y-6">
+              <h1 className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-nineties text-gray-900">
                 HXI Labs
               </h1>
-              <div className="h-px w-24 sm:w-32 bg-gray-300 mx-auto"></div>
-              <p className="text-lg sm:text-xl md:text-2xl font-light text-gray-600 leading-relaxed px-4 sm:px-0">
+              <div className="h-px w-20 sm:w-32 bg-gray-300 mx-auto"></div>
+              <p className="text-base sm:text-xl md:text-2xl font-light text-gray-600 leading-relaxed px-2 sm:px-0">
                 Designing the Future of Human Experience
               </p>
             </div>
