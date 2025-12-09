@@ -4,7 +4,7 @@ import { PAGE_PADDING } from '@/lib/constants';
 export default function Header() {
   return (
     <header className={`${PAGE_PADDING} pt-16 fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-gray-50`}>
-      <div className="flex justify-between items-start">
+      <div className="flex justify-between items-start pb-4">
         <Link href="/" className="text-xl font-bold text-gray-900">
           <img src="/logo3.svg" alt="HXI Labs" width={50}/>
         </Link>

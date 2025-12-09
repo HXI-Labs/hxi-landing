@@ -3,6 +3,7 @@ import { MDXRemote } from 'next-mdx-remote/rsc';
 import Header from '../../components/Header';
 import Footer from '../../components/Footer';
 import { notFound } from 'next/navigation';
+import { PAGE_PADDING } from '@/lib/constants';
 
 interface Props {
   params: {
@@ -40,7 +41,7 @@ export default function BlogPost({ params }: Props) {
   return (
     <div className="min-h-screen bg-gray-50 flex flex-col">
       <Header />
-      <main className={`pt-32 pb-20 flex-grow`}>
+      <main className={`${PAGE_PADDING} pt-32 pb-20 flex-grow`}>
          <div className="max-w-3xl mx-auto">
             <header className="mb-2 border-b border-gray-100 pb-0">
                 <div className="text-sm text-gray-500 font-mono mb-4">{new Date(post.date).toLocaleDateString("en", {
