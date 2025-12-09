@@ -150,7 +150,10 @@ export default function Home() {
             <img src="/logo3.svg" alt="HXI Labs" width={50}/>
           </h1>
           <div className="flex items-center gap-6">
-            <a href="/plan" className="text-gray-600 hover:text-gray-900 transition-colors font-semibold">
+            <a href="/blog" className="text-gray-600 hover:text-gray-900 transition-colors font-semibold">
+              Blog
+            </a>
+             <a href="/plan" className="text-gray-600 hover:text-gray-900 transition-colors font-semibold">
               Plan
             </a>
             <a href="mailto:hello@hxilabs.com" className="flex items-center gap-2 text-gray-600 hover:text-gray-900 transition-colors font-semibold">
