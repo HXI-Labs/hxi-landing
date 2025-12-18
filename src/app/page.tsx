@@ -71,14 +71,6 @@ const fellows = [
     shadowColor: "#1e3a8a",
   },
   {
-    name: "Evans",
-    role: "R&D",
-    github: "https://github.com/devkyle4",
-    initial: "E",
-    bgColor: "bg-yellow-200",
-    shadowColor: "#f59e0b",
-  },
-  {
     name: "Ephraim",
     role: "Software Engineering",
     github: "https://github.com/greatnessmensah",
@@ -110,14 +102,6 @@ const fellows = [
     bgColor: "bg-pink-200",
     shadowColor: "#ffc0cb",
   },
-  {
-    name: "Ephraim",
-    role: "Software Engineering",
-    github: "https://github.com/ephraimduncan",
-    initial: "ED",
-    bgColor: "bg-emerald-200",
-    shadowColor: "#10b981",
-  }
 ];
 
 export default function Home() {
@@ -306,7 +290,7 @@ export default function Home() {
         >
           <div className="max-w-5xl mx-auto">
             <div className="flex items-start justify-start mb-10">
-              <h2 className="text-3xl sm:text-3xl md:text-4xl lg:text-4xl font-nineties text-gray-900">Our Fellows</h2>
+              <h2 className="text-3xl sm:text-3xl md:text-4xl lg:text-4xl font-nineties text-gray-900">Our Core Team</h2>
             </div>
             <div className="flex flex-col justify-center">
             <h3 className="text- text-gray-500 mb-4 col-span-full text-left">R&D</h3>
