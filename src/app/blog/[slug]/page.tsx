@@ -39,7 +39,7 @@ export default function BlogPost({ params }: Props) {
   }
 
   return (
-    <div className="min-h-screen bg-gray-50 flex flex-col">
+    <div className="min-h-screen bg-paper flex flex-col">
       <Header />
       <main className={`${PAGE_PADDING} pt-32 pb-20 flex-grow`}>
          <div className="max-w-3xl mx-auto">
