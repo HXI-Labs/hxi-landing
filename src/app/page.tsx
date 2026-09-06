@@ -21,7 +21,7 @@ export default function Home() {
         </h1>
 
         <div className="space-y-[1.15em] text-[18px] leading-[1.6]">
-          <p>Intelligence is becoming cheap. Attention between people is not.</p>
+          <p>Intelligence is becoming cheap. The experience of being with another person is not.</p>
 
           <p>
             For most of history the scarce thing was capability: the years it took to learn a craft, the hours it took
@@ -30,22 +30,23 @@ export default function Home() {
           </p>
 
           <p>
-            What those systems cannot do is be with us. They cannot sit across a table, remember a face, or notice that
-            a friend has gone quiet. A moment in which one person is fully present with another is the one part of the
-            human experience that does not scale. It is therefore the part that matters most.
+            What those systems cannot do is live a life. A human experience is made of interactions: the conversation
+            that changes your mind, the friend who notices you have gone quiet, the hand on a shoulder at the right
+            moment. None of that scales, and none of it can be delegated. It is the part of being alive that matters
+            most.
           </p>
 
           <p>We believe the purpose of intelligence is to give people more of each other.</p>
 
           <p>
             HXI Labs is a research lab studying the space between people and machines. We build models and interfaces
-            that hand time back, that recede into the background, and that treat a person&rsquo;s attention as something
-            to be protected rather than captured.
+            that hand time back, that recede into the background, and that make the interactions between people richer
+            rather than standing in for them.
           </p>
 
           <p>
-            We hold our work to a simple test. If a system makes people more present with the people they love, we
-            ship it. If it makes them less present, we do not, whatever it would earn.
+            We hold our work to a simple test. If a system deepens the way people experience each other, we ship it.
+            If it puts itself between them, we do not, whatever it would earn.
           </p>
 
           <p>
