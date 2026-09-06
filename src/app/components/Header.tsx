@@ -10,7 +10,6 @@ export default function Header() {
         </Link>
         <nav className="flex items-center gap-5 text-[15px]">
           <Link href="/blog" className="link">Blog</Link>
-          <Link href="/plan" className="link">Plan</Link>
         </nav>
       </div>
     </header>
