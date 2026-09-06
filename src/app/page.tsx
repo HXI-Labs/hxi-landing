@@ -55,7 +55,11 @@ export default function Home() {
 
           <p>
             Our current research lives in memory, connection, and creative expression: tools that help people remember
-            what mattered, reach the people who matter, and make things that could not have existed without them.
+            what mattered, reach the people who matter, and make things that could not have existed without them. Most
+            recently it lives in speech itself.{' '}
+            <a href="https://github.com/HXI-Labs/attune" target="_blank" rel="noopener noreferrer" className="link">Attune</a>{' '}
+            is a small model that keeps how a person sounded alongside what they said, and we have written about{' '}
+            <Link href="/blog/attune-what-a-transcript-throws-away" className="link">why that matters</Link>.
           </p>
 
           <p>
