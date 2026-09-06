@@ -45,7 +45,7 @@ export default function Home() {
           </p>
 
           <p>
-            We hold our work to a simple test. If a system deepens the way people experience each other, we ship it.
+            We hold our work to a simple test. If a system deepens the way people experience each other, we build it.
             If it puts itself between them, we do not, whatever it would earn.
           </p>
 
