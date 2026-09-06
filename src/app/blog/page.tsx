@@ -9,49 +9,52 @@ export const metadata = {
   description: 'Thoughts on technology, design, and human connection.',
 };
 
+function formatDate(date: string) {
+  return new Date(date).toLocaleDateString('en', { year: 'numeric', month: 'long', day: 'numeric' });
+}
+
 export default function BlogIndex() {
-  const posts = getSortedPostsData();
+  const [featured, ...rest] = getSortedPostsData();
 
   return (
-    <div className="min-h-screen bg-gray-50 flex flex-col">
+    <div className="min-h-screen bg-paper flex flex-col">
       <Header />
-      <main className={`${PAGE_PADDING} pt-32 pb-20 flex-grow`}>
-        <div className="max-w-3xl mx-auto">
-          <h1 className="text-4xl md:text-5xl font-nineties text-gray-900 mb-16">Blog</h1>
-          <div className="space-y-16">
-            {posts.map((post) => (
-              <article key={post.slug} className="group cursor-pointer">
-                <Link href={`/blog/${post.slug}`} className="block">
-                  <div className="flex flex-col space-y-3">
-                      <div className="flex flex-col md:flex-row md:items-baseline md:justify-between gap-2">
-                          <h2 className="text-2xl font-normal text-gray-900 group-hover:text-gray-600 transition-colors font-nineties">
-                              {post.title}
-                          </h2>
-                          <span className="text-sm text-gray-400 font-mono shrink-0">
-                              {new Date(post.date).toLocaleDateString("en", {
-                                year: 'numeric',
-                                month: 'long',
-                                day: 'numeric',
-                            })}
-                          </span>
-                      </div>
-                    
-                    <p className="text-base text-gray-600 leading-relaxed max-w-2xl">
-                      {post.description}
-                    </p>
-                    
-                    <div className="pt-2">
-                        <span className="text-sm text-gray-900 border-b border-gray-900 pb-0.5 group-hover:border-gray-600 group-hover:text-gray-600 transition-all">Read more</span>
+      <main className={`${PAGE_PADDING} pt-16 sm:pt-20 pb-20 flex-grow`}>
+        {!featured && <p className="text-muted italic">No blog posts found.</p>}
+
+        {featured && (
+          <article className="group">
+            <Link href={`/blog/${featured.slug}`} className="block">
+              <p className="text-xs uppercase tracking-[0.18em] text-muted mb-4">Latest</p>
+              <h1 className="text-4xl md:text-5xl font-nineties leading-[1.05] group-hover:text-muted transition-colors mb-3">
+                {featured.title}
+              </h1>
+              <p className="text-sm text-muted font-mono mb-6">{formatDate(featured.date)}</p>
+              <p className="text-[18px] leading-[1.6] mb-6">{featured.description}</p>
+              <span className="link">Read the essay</span>
+            </Link>
+          </article>
+        )}
+
+        {rest.length > 0 && (
+          <>
+            <hr className="border-0 border-t border-rule my-14" />
+            <div className="space-y-12">
+              {rest.map((post) => (
+                <article key={post.slug} className="group">
+                  <Link href={`/blog/${post.slug}`} className="block">
+                    <div className="flex flex-col sm:flex-row sm:items-baseline sm:justify-between gap-1 mb-2">
+                      <h2 className="text-2xl font-nineties group-hover:text-muted transition-colors">{post.title}</h2>
+                      <span className="text-sm text-muted font-mono shrink-0">{formatDate(post.date)}</span>
                     </div>
-                  </div>
-                </Link>
-              </article>
-            ))}
-            {posts.length === 0 && (
-                <p className="text-gray-500 italic">No blog posts found.</p>
-            )}
-          </div>
-        </div>
+                    <p className="text-[17px] leading-[1.6] text-muted mb-3">{post.description}</p>
+                    <span className="link text-[15px]">Read more</span>
+                  </Link>
+                </article>
+              ))}
+            </div>
+          </>
+        )}
       </main>
       <Footer />
     </div>
