@@ -14,12 +14,10 @@ export default function Home() {
   return (
     <div className="min-h-screen flex flex-col">
       <main className={`${PAGE_PADDING} pt-10 sm:pt-12 pb-10 flex-grow`}>
-        <Link href="/" aria-label="HXI Labs" className="inline-block mb-8">
-          <img src="/logo3.svg" alt="HXI Labs" width={52} height={40} />
-        </Link>
-
-        <h1 className="font-domaine-bold text-[30px] sm:text-[32px] leading-tight tracking-tight mb-5">
-          HXI Labs
+        <h1 className="mb-10">
+          <Link href="/" className="inline-block">
+            <img src="/logo3.svg" alt="HXI Labs" width={60} height={46} />
+          </Link>
         </h1>
 
         <div className="space-y-[1.15em] text-[18px] leading-[1.6]">
